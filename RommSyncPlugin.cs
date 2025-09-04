@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Drawing; // Provided by System.Drawing.Common
+using System.Drawing;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -19,7 +19,6 @@ namespace RommSyncPlugin
         private readonly string settingsFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plugins", "RommSyncPlugin", "settings.json");
         private readonly string outputFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plugins", "RommSyncPlugin", "romm_sync_output.json");
 
-        // IGameMenuItemPlugin implementation
         public bool SupportsMultipleGames => false;
         public string Caption => "Sync with Romm";
         public Image IconImage => null;
@@ -28,7 +27,6 @@ namespace RommSyncPlugin
         public bool GetIsValidForGame(IGame selectedGame) => true;
         public bool GetIsValidForGames(IGame[] selectedGames) => false;
 
-        // ISystemMenuItemPlugin implementation
         public string SystemMenuItemCaption => "Romm Sync Settings";
         public Image SystemMenuItemIconImage => null;
         public bool ShowInLaunchBoxSystemMenu => true;
@@ -48,15 +46,8 @@ namespace RommSyncPlugin
             }
         }
 
-        public void OnSelected(IGame[] selectedGames)
-        {
-            // Not implemented as SupportsMultipleGames is false
-        }
-
-        public void OnSelected()
-        {
-            ShowSettingsForm(false);
-        }
+        public void OnSelected(IGame[] selectedGames) { }
+        public void OnSelected() => ShowSettingsForm(false);
 
         private void LoadSettings()
         {
@@ -212,7 +203,7 @@ namespace RommSyncPlugin
     public class OutputGame
     {
         public string Title { get; set; }
-        public string Platform(No such file or directory) { get; set; }
+        public string Platform { get; set; }
         public string ApplicationPath { get; set; }
         public string Notes { get; set; }
         public string FrontImagePath { get; set; }
