@@ -1,0 +1,8 @@
+{
+  "PluginName": "RommSyncPlugin",
+  "PluginDescription": "Syncs ROMs and metadata from a Romm server into LaunchBox.",
+  "PluginAuthor": "Grok (xAI)",
+  "PluginVersion": "1.0.0",
+  "MinimumApiVersion": "1.0",
+  "TargetApiVersion": "1.2"
+}
